@@ -102,7 +102,7 @@ jobs:
         run: |
           uv venv .venv --python 3.11
           source .venv/bin/activate
-          uv pip install build
+          uv pip install build==1.5.0
           python -m build --wheel
 
       - name: Verify uvx Browser Use CLI
