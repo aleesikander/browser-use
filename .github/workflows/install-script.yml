@@ -87,6 +87,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Garnet Runtime Review
+        uses: garnet-org/action@3d47f4a9004f7356c980a0e8d420ef5984750e3c # v2.2.0
+        with:
+          api_token: ${{ secrets.GARNET_API_TOKEN }}
+
       - name: Install uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
 
@@ -97,7 +102,7 @@ jobs:
         run: |
           uv venv .venv --python 3.11
           source .venv/bin/activate
-          uv pip install build
+          uv pip install build==1.5.0
           python -m build --wheel
 
       - name: Verify uvx Browser Use CLI
