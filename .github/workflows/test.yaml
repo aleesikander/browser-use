@@ -185,7 +185,7 @@ jobs:
           timeout_minutes: 4
           max_attempts: 1
           retry_on: error
-          command: pytest "tests/ci/${{ matrix.test_filename }}.py"
+          command: uv run --no-sync pytest "tests/ci/${{ matrix.test_filename }}.py"
 
   evaluate-tasks:
     needs: setup-chromium
